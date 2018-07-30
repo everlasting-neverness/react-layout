@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Posts } from "./Posts/Posts.js";
 import { Footer } from "./Footer/Footer.js";
-import { posts } from "./Posts/posts-data.js";
 
 function render() {
   ReactDOM.render(
