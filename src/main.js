@@ -62,7 +62,7 @@ let objects = [
 
 class ContentHolder extends React.Component {
   render() {
-    objects.forEach(obj => {
+    let output = objects.map(obj => {
       return (
         <div className="inside-block">
           <div className="hidden">
@@ -73,7 +73,7 @@ class ContentHolder extends React.Component {
                   alt=""
                 />
               </span>
-              <span className="">${obj.likes}</span>
+              <span className="">{obj.likes}</span>
             </span>
             <span className="group">
               <span className="comments">
@@ -85,19 +85,44 @@ class ContentHolder extends React.Component {
               <span className="">{obj.comments}</span>
             </span>
           </div>
-          <img src={obj.url} alt="" />
+          <img src={obj.img} alt="" />
         </div>
       );
     });
-    return objects;
-    // return <h1>Hello World!</h1>;
+    return output;
+  }
+}
+
+class Footer extends React.Component {
+  render() {
+    return (
+      <div className="footer">
+        <div className="icons">
+          <span className="icon icon-vk" />
+          <span className="icon icon-fb" />
+          <span className="icon icon-t" />
+          <span className="icon icon-G" />
+        </div>
+        <div className="logo">
+          <img
+            className="logo-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2000px-Instagram_logo_2016.svg.png"
+            alt=""
+          />
+          <div className="logo-text">The Verstka</div>
+        </div>
+      </div>
+    );
   }
 }
 
 function render() {
   ReactDOM.render(
-    <div class="main-div">
-      <ContentHolder />
+    <div className="main-div">
+      <div className="content-holder">
+        <ContentHolder />
+      </div>
+      <Footer />
     </div>,
     document.getElementById("root")
   );
